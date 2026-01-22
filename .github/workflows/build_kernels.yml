@@ -145,7 +145,6 @@ jobs:
           ls
           cd $HOME/AnyKernel3
           cp $HOME/kernel/out/arch/arm64/boot/Image $HOME/AnyKernel3/
-          cp $HOME/kernel/out/arch/arm64/boot/boot.img $HOME/AnyKernel3/
           7z a "${{ env.KERNEL_NAME }}.zip" . -xr!*.git*
 
       - name: Publish to GitHub
