@@ -113,6 +113,8 @@ jobs:
           export TARGET_SOC=s5e8835
           export DEPMOD=depmod
           MAKE_PARAMS="-j$(nproc --all) ARCH=arm64 KBUILD_OUTPUT=$HOME/kernel/out CC=clang LLVM=1 LLVM_IAS=1 CLANG_TRIPLE=llvm- CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi-"
+          echo "编译参数=>"$MAKE_PARAMS
+          echo "编译配置=>"$CONFIGS
           make $MAKE_PARAMS $CONFIGS
           make $MAKE_PARAMS
 
@@ -136,8 +138,10 @@ jobs:
       - name: Create zip
         run: |
           cd $HOME/kernel/out/arch/arm64
+          echo "out/arch/arm64目录下的内容："
           ls
           cd $HOME/kernel/out/arch/arm64/boot
+          echo "out/arch/arm64/boot目录下的内容："
           ls
           cd $HOME/AnyKernel3
           cp $HOME/kernel/out/arch/arm64/boot/Image $HOME/AnyKernel3/
