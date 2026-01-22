@@ -150,7 +150,6 @@ jobs:
 
   build_ksu_susfs:
     name: Build KSU-SUSFS Kernel
-    needs: [notify-start]
     runs-on: ubuntu-latest
     if: ${{ github.event.inputs.variant == 'All variants' || github.event.inputs.variant == 'KSU-SUSFS' }}
     
