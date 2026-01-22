@@ -135,6 +135,10 @@ jobs:
 
       - name: Create zip
         run: |
+          cd $HOME/kernel/out/arch/arm64
+          ls
+          cd $HOME/kernel/out/arch/arm64/boot
+          ls
           cd $HOME/AnyKernel3
           cp $HOME/kernel/out/arch/arm64/boot/Image $HOME/AnyKernel3/
           cp $HOME/kernel/out/arch/arm64/boot/boot.img $HOME/AnyKernel3/
